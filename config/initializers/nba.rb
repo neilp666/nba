@@ -4,6 +4,6 @@ require 'nokogiri'
 url = "https://en.wikipedia.org/wiki/List_of_current_NBA_team_rosters" #add to the url variable
 page = Nokogiri::HTML(open(url))  #add url to page variable
 
-puts page
-
-puts page.css('li.toclevel-3')
+page.css('td[style="text-align:left;"]').each do |line| #loop &  print on new line
+  puts line.text
+end
